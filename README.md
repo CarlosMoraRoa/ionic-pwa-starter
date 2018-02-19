@@ -22,7 +22,7 @@ Once the new page is created, add the directives module to the pages module, in 
     })
 
 ### Splitpane
-Ionic [Splitpane](https://ionicframework.com/docs/api/components/split-pane/SplitPane/) is added with a directive `pwa-splitpane-max-width`, which allows you to set the max width for your splitpane. The directive targets the child element on the `ion-split-pane` tag
+Ionic [Splitpane](https://ionicframework.com/docs/api/components/split-pane/SplitPane/) is added with a directive `pwa-split-pane-max-width`, which allows you to set the max width for your splitpane. The directive targets the child element on the `ion-split-pane` tag
 
     <ion-split-pane>
        <ion-menu [content]="content" [pwa-split-pane-max-width]="200">
