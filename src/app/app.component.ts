@@ -16,6 +16,7 @@ export class PwaApp {
     this.pages = [
       { title: 'Home', component: 'HomePage' },
       { title: 'Center Example', component: 'CenterExamplePage' },
+      { title: 'Images Example', component: 'ImagesExamplePage' },
       { title: 'List', component: 'ListPage' },
     ];
 

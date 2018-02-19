@@ -1,0 +1,11 @@
+.md,
+.ios {
+  .pwa-lg-flat-style{
+    .header-md::after,
+    .tabs-md[tabsPlacement="top"]>.tabbar::after,
+    .footer-md::before,
+    .tabs-md[tabsPlacement="bottom"]>.tabbar::before {
+      content: none;
+    }
+  }
+}
