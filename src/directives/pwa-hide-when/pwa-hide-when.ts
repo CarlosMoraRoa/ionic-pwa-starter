@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, Input, HostListener, ElementRef } from '@angular/core';
 
 /**
  * Generated class for the PwaHideWhenDirective directive.

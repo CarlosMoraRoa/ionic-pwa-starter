@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, Input, HostListener, ElementRef } from '@angular/core';
 
 /**
  * Generated class for the PwaShowWhenDirective directive.
@@ -11,8 +11,24 @@ import { Directive } from '@angular/core';
 })
 export class PwaShowWhenDirective {
 
-  constructor() {
-    console.log('Hello PwaShowWhenDirective Directive');
+  @Input() showWhenWidth: string;
+
+  constructor(private el: ElementRef) {
+  }
+
+  @HostListener('window:resize', ['$event']) onResize(event: Event) {
+    this.showWhenCheck();
+  }
+
+  showWhenCheck() {
+    /* switch (true) {
+      case window.innerWidth <= this.hideWhenWidth && !this.greaterThen: this.el.nativeElement.hidden = false;
+        break;
+      case window.innerWidth >= this.hideWhenWidth && this.greaterThen: this.el.nativeElement.hidden = false;
+        break;
+      default: this.el.nativeElement.hidden = true;
+        break;
+    } */
   }
 
 }
