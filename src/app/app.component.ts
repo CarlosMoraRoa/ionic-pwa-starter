@@ -15,7 +15,8 @@ export class PwaApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: 'HomePage' },
-      { title: 'List', component: 'ListPage' }
+      { title: 'Center Example', component: 'CenterExamplePage' },
+      { title: 'List', component: 'ListPage' },
     ];
 
   }

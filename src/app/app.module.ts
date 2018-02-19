@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { PwaApp } from './app.component';
+import { PWAConfig } from "./app.pwa.config";
 import { DirectivesModule } from "../directives/directives.module";
 
 
@@ -12,7 +13,7 @@ import { DirectivesModule } from "../directives/directives.module";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(PwaApp),
+    IonicModule.forRoot(PwaApp, PWAConfig.APP_CONFIG),
     DirectivesModule
   ],
   bootstrap: [IonicApp],
