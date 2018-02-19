@@ -7,17 +7,28 @@ import { Directive, ElementRef, Input } from '@angular/core';
  * Directives.
  */
 @Directive({
-  selector: '[pwa-splitpane-max-width]' // Attribute selector
+  selector: '[pwa-splitpane-max-width]', // Attribute selector
+  host: {
+    '(window:resize)': 'onWindowResize($event)'
+  }
 })
 export class PwaSplitpaneMaxWidthDirective {
 
   @Input('pwa-splitpane-max-width') maxWidth: string;
+  initWidth: string;
 
   constructor(private el: ElementRef) {
   }
 
   ngOnInit() {
-    this.el.nativeElement.style.maxWidth = `${this.maxWidth}px`;
+    this.setMaxWidth();
   }
 
+  onWindowResize() {
+    this.setMaxWidth();
+  }
+
+  setMaxWidth() {
+    window.innerWidth <= 767 && this.maxWidth ? this.el.nativeElement.style.maxWidth = '100%' : this.el.nativeElement.style.maxWidth = `${this.maxWidth}px`;
+  }
 }
