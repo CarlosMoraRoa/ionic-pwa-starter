@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 /**
  * Generated class for the PwaSplitpaneMaxWidthDirective directive.
@@ -11,8 +11,13 @@ import { Directive } from '@angular/core';
 })
 export class PwaSplitpaneMaxWidthDirective {
 
-  constructor() {
-    console.log('Hello PwaSplitpaneMaxWidthDirective Directive');
+  @Input('pwa-splitpane-max-width') maxWidth: string;
+
+  constructor(private el: ElementRef) {
+  }
+
+  ngOnInit() {
+    this.el.nativeElement.style.maxWidth = `${this.maxWidth}px`;
   }
 
 }
