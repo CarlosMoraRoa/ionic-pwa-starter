@@ -7,12 +7,14 @@ import { Directive, Input, HostListener, ElementRef } from '@angular/core';
  * Directives.
  */
 @Directive({
-  selector: '[pwa-hide-when]' // Attribute selector
+  selector: '[pwa-hide-when]', // Attribute selector
+  host: {
+    '(window:resize)': 'onWindowResize($event)'
+  }
 })
 export class PwaHideWhenDirective {
 
   constructor() {
-    console.log('Hello PwaHideWhenDirective Directive');
   }
 
 }
