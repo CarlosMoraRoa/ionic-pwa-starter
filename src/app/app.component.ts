@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
+import { PWAConfig } from "./app.pwa.config";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -13,12 +15,7 @@ export class PwaApp {
   constructor(public platform: Platform) {
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: 'HomePage' },
-      { title: 'Center Example', component: 'CenterExamplePage' },
-      { title: 'Images Example', component: 'ImagesExamplePage' },
-      { title: 'List', component: 'ListPage' },
-    ];
+    this.pages = PWAConfig.MenuItems;
 
   }
 
