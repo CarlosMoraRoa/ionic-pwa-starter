@@ -1,10 +1,11 @@
 # Ionic PWA Starter
-A starter for ionic progressive web apps with some extras specific to desktop / tablet / mobile development.
+A starter for ionic progressive web apps with some extras specific to desktop / tablet / mobile development. This starter assumes that the application being developed will
+NOT be developed as a mobile application and therefor the default `@ionic` native scripts have been removed.
 
-The start consists primarily of custom directives and componets that might be useful in developement for a desktop to mobile website. This includes
+The start template consists primarily of custom directives and componets that might be useful in developement for a desktop to mobile website. This includes
 
     - Centering Content
-    - Large Flst style
+    - Large Flat style
     - Desktop toolbar menu
     - Split pane extras
 
