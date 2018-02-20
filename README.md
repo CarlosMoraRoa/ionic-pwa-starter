@@ -4,12 +4,29 @@ NOT be developed as a mobile application and therefor the default `@ionic` nativ
 
 The start template consists primarily of custom directives and componets that might be useful in developement for a desktop to mobile website. This includes
 
-    - Centering Content
-    - Large Flat style
-    - Desktop toolbar menu
-    - Split pane extras
+  - Centering Content Directive
+  - Large Flat Style
+  - Desktop Toolbar Menu
+  - Split Pane Extras
 
 For more information see the [projects wiki](https://github.com/IsaacSomething/ionic-pwa-starter/wiki)
+
+#### Demo
+
+To demo, clone this repo
+
+     $: git clone https://github.com/IsaacSomething/ionic-pwa-starter.git
+
+You will need [node](https://nodejs.org/en/), [git](https://git-scm.com/downloads), npm and the [ionic cli](https://ionicframework.com/docs/cli/#installation) installed.
+
+then
+
+    $: npm install
+
+and lastly
+
+    $: ionic serve
+
 
 #### Service Workers
 

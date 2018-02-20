@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { PWAConfig } from "../../app/app.pwa.config";
+import { PWAConfig, IMenuItems } from "../../app/app.pwa.config";
 
 /**
  * Generated class for the PwaMenuComponent component.
@@ -17,13 +17,16 @@ import { PWAConfig } from "../../app/app.pwa.config";
 })
 export class PwaMenuComponent {
 
-  @Input() menuItems: Array<any> = PWAConfig.MenuItems;
+  @Input() menuItems: Array<IMenuItems> = PWAConfig.MenuItems;
+  @Input() isUniqueMenu: boolean;
+  @Input() addToMainMenu: boolean;
 
   constructor(private navCtrl: NavController, private el: ElementRef) {
   }
 
   ngOnInit() {
     this.menuShouldShowCheck();
+    this.isUniqueMenu && (this.menuItems = PWAConfig.MenuItemsUnique);
   }
 
   onWindowResize() {

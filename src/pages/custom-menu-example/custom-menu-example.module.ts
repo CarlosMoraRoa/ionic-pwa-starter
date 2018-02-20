@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { NoSplitPaneExamplePage } from './no-split-pane-example';
+import { CustomMenuExamplePage } from './custom-menu-example';
 import { ComponentsModule } from "../../components/components.module";
 
 @NgModule({
   declarations: [
-    NoSplitPaneExamplePage,
+    CustomMenuExamplePage,
   ],
   imports: [
-    IonicPageModule.forChild(NoSplitPaneExamplePage),
+    IonicPageModule.forChild(CustomMenuExamplePage),
     ComponentsModule
   ],
 })
-export class NoSplitPaneExamplePageModule { }
+export class CustomMenuExamplePageModule { }

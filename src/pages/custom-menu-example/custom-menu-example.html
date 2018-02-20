@@ -1,0 +1,83 @@
+<!--
+  Generated template for the CustomMenuExamplePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title> Custom Menu Example </ion-title>
+
+    <ion-buttons end padding-right>
+      <pwa-menu isUniqueMenu="true"></pwa-menu>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h6>Case 01</h6>
+  <ion-label> Side Menu With Custom Top Navbar Menu ( no extras )</ion-label>
+  <hr>
+
+  <p>
+    As is often the case with a "Admin" style template, one with a left sidebar menu and a top navbar menu. In this case we have
+    the main left menu which will be the main menu on mobile and the top right menu. In order to setup this up you first
+    need to create the menu items in the
+    <code>./app/app.pwa.config.ts</code> file.
+  </p>
+
+  <pre>
+    public static readonly MenuItemsUnique = [
+      &#123; title: 'Account', component: 'HomePage' &#125;,
+      &#123; title: 'Logout', component: 'CenterExamplePage' &#125;,
+    ];
+  </pre>
+
+  <p>
+    Then in your DOM when you declare the
+    <code>pwa-menu</code> add the
+    <code>isUniqueMenu="true"</code>
+  </p>
+
+  <pre>
+    &lsaquo;ion-buttons end padding-right&rsaquo;
+        &lsaquo;pwa-menu isUniqueMenu="true"&rsaquo;&lsaquo;/pwa-menu&rsaquo;
+    &lsaquo;/ion-buttons&rsaquo;
+  </pre>
+
+  <p>
+    Left as is, this unique top right hand menu will disappear on anything smaller then
+    <code> 922px</code>
+  </p>
+
+  <h6>Case 02</h6>
+  <ion-label> Addition Of Unique Menu In Main Menu On Smaller Screen Sizes </ion-label>
+  <hr>
+  <p>
+    A common senario would be to add the unique top right hand side toolbar menu items into the main left hand side menu when
+    on smaller devices. This is NOT set by default but easy to add if you would like that functionality.
+  </p>
+  <p>
+    In the
+    <code>./app/app.component.ts</code> file you need to activate
+  </p>
+
+  <pre>
+      appendUniqueMenuItems: boolean = true;
+      hasSetUniqueMenuItems: boolean = false;
+  </pre> This will then trigger the
+  <code>setUniqueMenu()</code> conditionals. Resize the screen with the boolean values added to view the result.
+
+
+
+
+
+</ion-content>
