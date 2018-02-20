@@ -2,13 +2,10 @@
 .ios {
     @media (min-width: map-get($grid-breakpoints, lg)) {
         .ion-page.pwa-center {
-            ion-header .toolbar,
-            ion-content ion-grid,
-            ion-footer .toolbar {
+            ion-header .toolbar, ion-content ion-grid, ion-footer .toolbar {
                 padding-right: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
                 padding-left: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
             }
-            ion-content .scroll-content {}
             ion-header .toolbar,
             ion-footer .toolbar {
                 margin: 0;
@@ -17,5 +14,8 @@
                 } */
             }
         }
+        .pwa-hide {
+          display: none!important;
+      }
     }
 }

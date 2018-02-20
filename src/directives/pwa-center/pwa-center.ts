@@ -11,16 +11,25 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 })
 export class PwaCenterDirective {
 
+  ionMenuEl: any;
+
   constructor(private el: ElementRef, private renderer2: Renderer2) {
   }
 
   ngOnInit() {
-    let parentEl = this.renderer2.parentNode(this.el.nativeElement);
-    console.log('asdas', this.renderer2.parentNode(parentEl));
-    let tron: ElementRef = this.renderer2.parentNode(parentEl);
-    tron.nativeElement.hidden = true;
+    this.renderer2.addClass(this.renderer2.parentNode(this.el.nativeElement), 'pwa-center');
+    this.ionMenuEl = this.el.nativeElement.parentElement.parentElement.parentElement.children[0];
+    console.log('sd', this.ionMenuEl);
 
-    this.renderer2.addClass(parentEl, 'pwa-center');
+    if (this.ionMenuEl) {
+      this.renderer2.addClass(this.ionMenuEl, 'pwa-hide');
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.ionMenuEl) {
+      this.renderer2.removeClass(this.ionMenuEl, 'pwa-hide');
+    }
   }
 
 }
