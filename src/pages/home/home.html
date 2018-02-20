@@ -10,17 +10,30 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    
+
     <ion-title> Home </ion-title>
 
     <ion-buttons end padding-right>
       <pwa-menu></pwa-menu>
     </ion-buttons>
-    
+
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+
+  <h6>Flat Style</h6>
+  <ion-label> Directive Removes Md ( Android ) Mode Style On Certian Elements </ion-label>
+  <hr>
+
+  <p>
+    By default the flat style is applied to styles larger then
+    <code> 922px </code> by adding the directive
+    <code> pwa-lg-flat-style </code> on the
+    <code> &lsaquo;ion-nav&rsaquo; </code> in './app/app.html'. The idea is to maintain mobile styles from tablet and smaller.
+  </p>
+
+  <p> Resize the browser, notice the navbar drop shadow</p>
 
 </ion-content>

@@ -14,7 +14,7 @@ export class PwaApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = 'HomePage';
   pages: Array<IMenuItems>;
-  
+
   // Set appendUniqueMenuItems to true in order to append a unique top right hand menu to the main menu 
   // Unique menu will only be appended when smaller then 992px - change this if you want
   appendUniqueMenuItems: boolean = true;
@@ -33,17 +33,20 @@ export class PwaApp {
     this.nav.setRoot(page.component);
   }
 
-  onWindowResize($event) {
+  onWindowResize() {
     this.setUniqueMenu();
   }
 
   setUniqueMenu() {
+    // Pushs unique top right hand menu items onto main menu when smaller device
+    // Set isUniqueMenu="true" on <pwa-menu> 
     if (this.appendUniqueMenuItems && window.innerWidth <= 992) {
       if (!this.hasSetUniqueMenuItems) {
         this.hasSetUniqueMenuItems = true;
         this.pages = this.pages.concat(PWAConfig.MenuItemsUnique)
       }
     } else if (this.appendUniqueMenuItems) {
+      // watchs for screen size change
       this.hasSetUniqueMenuItems = false;
       this.pages = this.pages.filter(x => PWAConfig.MenuItemsUnique.indexOf(x) === -1);
     }

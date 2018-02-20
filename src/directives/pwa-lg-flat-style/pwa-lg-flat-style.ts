@@ -28,7 +28,9 @@ export class PwaLgFlatStyleDirective {
   addFlatStyleClass() {
     /** 
      * Test when splitpane is not not there 
-     * Needs to target parent element to apply styles to ion menu in split pane
+     * Needs to target parent element to apply styles to 
+     * ion menu in split pane
+     * Why am i not using platform ? because .. well maybe i should be
      */
     let parentEl = this.renderer2.parentNode(this.el.nativeElement)
     window.innerWidth >= 992 ? this.renderer2.addClass(parentEl, 'pwa-lg-flat-style') : this.renderer2.removeClass(parentEl, 'pwa-lg-flat-style');

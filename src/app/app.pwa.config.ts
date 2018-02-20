@@ -8,11 +8,10 @@ export class PWAConfig {
     { title: 'Home', component: 'HomePage' },
     { title: 'Center', component: 'CenterExamplePage' },
     { title: 'Images', component: 'ImagesExamplePage' },
-    { title: 'Split Pane', component: 'NoSplitPaneExamplePage' },
+    { title: 'Split Pane', component: 'SplitPaneExamplePage' },
     { title: 'Menu', component: 'CustomMenuExamplePage' },
   ];
 
-  
   public static readonly MenuItemsUnique = [
     { title: 'Account', component: 'HomePage' },
     { title: 'Logout', component: 'CenterExamplePage' },
@@ -22,5 +21,6 @@ export class PWAConfig {
 
 export interface IMenuItems {
   title: string,
-  component: string
+  component: string,
+  icon?: string,
 }

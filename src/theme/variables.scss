@@ -99,7 +99,8 @@ $grid-max-widths: (
 @import "noto-sans";
 
 
-// Custom
-@import "pwa-common";
+// Custom PWA styles
+// -------------------------------------------------
 @import "pwa-center";
 @import "pwa-lg-flat-style";
+@import "pwa-common";

@@ -16,6 +16,10 @@ export class PwaCenterDirective {
 
   ngOnInit() {
     let parentEl = this.renderer2.parentNode(this.el.nativeElement);
+    console.log('asdas', this.renderer2.parentNode(parentEl));
+    let tron: ElementRef = this.renderer2.parentNode(parentEl);
+    tron.nativeElement.hidden = true;
+
     this.renderer2.addClass(parentEl, 'pwa-center');
   }
 
