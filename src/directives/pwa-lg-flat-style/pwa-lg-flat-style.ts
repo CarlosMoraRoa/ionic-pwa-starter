@@ -19,8 +19,6 @@ export class PwaLgFlatStyleDirective {
 
   ngOnInit() {
     this.addFlatStyleClass();
-    console.log('test', this.renderer2.parentNode(this.el.nativeElement));
-
   }
 
   onWindowResize() {
