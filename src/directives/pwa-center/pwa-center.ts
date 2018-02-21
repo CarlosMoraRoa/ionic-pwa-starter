@@ -11,16 +11,18 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 })
 export class PwaCenterDirective {
 
-  ionMenuEl: any;
+  ionMenuEl: ElementRef;
 
   constructor(private el: ElementRef, private renderer2: Renderer2) {
   }
 
   ngOnInit() {
     this.renderer2.addClass(this.renderer2.parentNode(this.el.nativeElement), 'pwa-center');
-    this.ionMenuEl = this.el.nativeElement.parentElement.parentElement.parentElement.children[0];
-    console.log('sd', this.ionMenuEl);
 
+    /**
+     * By default applying the pwa-center directive, removes the split pane.
+     */
+    this.ionMenuEl = this.el.nativeElement.parentElement.parentElement.parentElement.children[0];
     if (this.ionMenuEl) {
       this.renderer2.addClass(this.ionMenuEl, 'pwa-hide');
     }

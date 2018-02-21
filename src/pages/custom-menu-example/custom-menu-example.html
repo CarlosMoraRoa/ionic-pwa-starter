@@ -14,7 +14,7 @@
     <ion-title> Menus </ion-title>
 
     <ion-buttons end padding-right>
-      <pwa-menu isUniqueMenu="true"></pwa-menu>
+      <pwa-menu standAlone="true"></pwa-menu>
     </ion-buttons>
 
   </ion-navbar>
@@ -24,11 +24,32 @@
 <ion-content padding>
 
   <p>
-    There are 2 menus in the starter template
+    There are 2 type of menus in the starter template
   </p>
   <ol>
-    <li>The "Main Menu" - which is the left side menu in the split pane and which by default the mobile menu</li>
-    <li>The "Top Navbar Menu" - This menu can also be called the unique menu depending on how you set it up. </li>
+    <li padding-bottom> The
+      <strong> "Main Menu"</strong>
+      <ul>
+        <li> Left side menu in the split pane, which by default the mobile menu </li>
+        <li> Menu items are defined in "./app/app.pwa.config.ts" ->
+          <code>MenuItems</code>
+        </li>
+        <li>This menu is declared in the DOM in the "./app/app.html" file</li>
+      </ul>
+    </li>
+    <li>The
+      <strong> "Top Navbar Menu"</strong>
+      <ul>
+        <li> Top navbar menu show on screen sizes larger then
+          <code> 992px </code>
+        </li>
+        <li> This menu is declared in the DOM using the
+          <code>pwa-menu</code> component </li>
+        <li> The menu items are automatically added to the mobile menu when screen size is smaller then
+          <code> 922px </code>
+        </li>
+      </ul>
+    </li>
   </ol>
 
   <h6>Top Navbar Menu</h6>
@@ -45,20 +66,21 @@
   </ol>
 
   <p>
-    This has implications on the menu setup. If you set the "generic centered layout" there wont be a main side bar menu in the split pane, however
-    when in a mobile view the main sidebar menu is the main mobile menu. Therefor even if you set a "generic centered layout"
-    the menu items set in the "./app.pwa.config.ts" will still be used as the main moblie menu items. You can see an example
-    of this in action by navigating to the "center" link in this project.
+    This has implications on the menu setup. If you set the "generic centered layout" there wont be a main side bar menu in the
+    split pane, however when in a mobile view the main sidebar menu is the main mobile menu. Therefor even if you set a "generic
+    centered layout" the menu items set in the "./app.pwa.config.ts" will still be used as the main moblie menu items. You
+    can see an example of this in action by navigating to the "center" link in this project.
   </p>
 
   <p>
     On this page you can see that the top right hand navbar links are different to all the other pages. Here we have set the
-    <code>MenuItemsUnique</code> in the "./app.pwa.config.ts" and then in our <code>&lsaquo;pwa-menu&rsaquo;</code> component we have added
+    <code>MenuItemsTopNav</code> in the "./app.pwa.config.ts" and then in our
+    <code>&lsaquo;pwa-menu&rsaquo;</code> component we have added
     <code>isUniqueMenu="true"</code>
   </p>
 
- <!--  <pre>
-    public static readonly MenuItemsUnique = [
+  <!--  <pre>
+    public static readonly MenuItemsTopNav = [
       &#123; title: 'Account', component: 'HomePage' &#125;,
       &#123; title: 'Logout', component: 'CenterExamplePage' &#125;,
     ];

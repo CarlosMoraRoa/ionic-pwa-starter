@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PWAConfig, IMenuItems } from "../../app/app.pwa.config";
 
@@ -17,16 +17,16 @@ import { PWAConfig, IMenuItems } from "../../app/app.pwa.config";
 })
 export class PwaMenuComponent {
 
-  @Input() menuItems: Array<IMenuItems> = PWAConfig.MenuItems;
-  @Input() isUniqueMenu: boolean;
-  @Input() addToMainMenu: boolean;
+  @Input() menuItems: Array<IMenuItems> = PWAConfig.MenuItemsTopNav;
+  @Input() standAlone: boolean;
 
-  constructor(private navCtrl: NavController, private el: ElementRef) {
+  constructor(private navCtrl: NavController, private el: ElementRef, private renderer2: Renderer2) {
   }
 
   ngOnInit() {
     this.menuShouldShowCheck();
-    this.isUniqueMenu && (this.menuItems = PWAConfig.MenuItemsUnique);
+    let ionContentElCheckForPwaCenter = this.el.nativeElement.parentElement.parentElement.parentElement.parentElement.children[1].attributes.hasOwnProperty('pwa-center');
+    this.standAlone || ionContentElCheckForPwaCenter && (this.menuItems = PWAConfig.MenuItems);
   }
 
   onWindowResize() {

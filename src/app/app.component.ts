@@ -43,12 +43,12 @@ export class PwaApp {
     if (this.appendUniqueMenuItems && window.innerWidth <= 992) {
       if (!this.hasSetUniqueMenuItems) {
         this.hasSetUniqueMenuItems = true;
-        this.pages = this.pages.concat(PWAConfig.MenuItemsUnique)
+        this.pages = this.pages.concat(PWAConfig.MenuItemsTopNav)
       }
     } else if (this.appendUniqueMenuItems) {
       // watchs for screen size change
       this.hasSetUniqueMenuItems = false;
-      this.pages = this.pages.filter(x => PWAConfig.MenuItemsUnique.indexOf(x) === -1);
+      this.pages = this.pages.filter(x => PWAConfig.MenuItemsTopNav.indexOf(x) === -1);
     }
   }
 

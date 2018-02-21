@@ -12,7 +12,7 @@ export class PWAConfig {
     { title: 'Menu', component: 'CustomMenuExamplePage' },
   ];
 
-  public static readonly MenuItemsUnique = [
+  public static readonly MenuItemsTopNav = [
     { title: 'Account', component: 'HomePage' },
     { title: 'Logout', component: 'CenterExamplePage' },
   ];
