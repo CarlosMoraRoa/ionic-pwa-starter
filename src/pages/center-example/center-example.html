@@ -21,14 +21,27 @@
 </ion-header>
 
 <ion-content pwa-center>
-  <ion-grid padding>
+  <ion-grid>
 
-    <h1>Content is Center</h1>
+    <h6>Centered content</h6>
+    <ion-label> Generic center content based style </ion-label>
+    <hr>
 
-    <p> This layout works best without the split pane. Remove the split pane for the traditional desktop website feel. Also remmeber
-      - if you are not going to be using the splitpane at all ( so there will be no use of the split pane in say an admin
-      view ) - remove the
-      <code> pwa-split-pane-max-width</code> directive.
+    <p>
+      This layout works best without the split pane and is removed by default.
+      <strong>NOTE</strong>
+      <code>pwa-center</code> directive will ONLY work by adding a direct
+      <code>&lsaquo;ion-grid&rsaquo;</code> child element.
+    </p>
+
+    <pre>
+      &lsaquo;ion-content pwa-center&rsaquo;
+        &lsaquo;ion-grid&rsaquo;
+    </pre>
+
+    <p>
+      Because you can choose which pages are center align, all other pages will still have the split pane ( this takes into account
+      for "web user" view pages and "administration / account holder" view pages) .
     </p>
 
   </ion-grid>
@@ -36,6 +49,6 @@
 
 <ion-footer>
   <ion-toolbar fixed>
-    <ion-title>sdfs</ion-title>
+    <ion-title>Footer</ion-title>
   </ion-toolbar>
 </ion-footer>

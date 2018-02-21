@@ -6,16 +6,16 @@
                 padding-right: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
                 padding-left: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
             }
+            .toolbar-title {
+                padding-left: 0;
+            }
             ion-header .toolbar,
             ion-footer .toolbar {
                 margin: 0;
-                /* .toolbar-title {
-                    padding: 0;
-                } */
             }
         }
         .pwa-hide {
-          display: none!important;
-      }
+            display: none!important;
+        }
     }
 }

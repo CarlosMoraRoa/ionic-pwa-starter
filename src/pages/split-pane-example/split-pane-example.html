@@ -26,5 +26,59 @@
   <h6>Max Split Pane Width</h6>
   <ion-label> Set A Max Width On The Split Pane </ion-label>
   <hr>
+  <p>
+    Add the
+    <code>pwa-split-pane-max-width</code> directive on the
+    <code>&lsaquo;ion-split-pane&rsaquo;</code> tag in "./app/app.html", which allows you to set the maximum width for your split pane side menu. The directive targets
+    the
+    <code>&lsaquo;ion-menu&rsaquo;</code> child element on the ion-split-pane tag.
+  </p>
+
+  <pre>
+    &lsaquo;ion-split-pane [pwa-split-pane-max-width]="200"&rsaquo;
+      &lsaquo;ion-menu [content]="content"&rsaquo;
+  </pre>
+
+  <p>
+    Dont forget to add the menu toggle to your page navbars in order to get the menu toggle on smaller screens
+  </p>
+
+  <pre>
+    &lsaquo;ion-header&rsaquo;
+      &lsaquo;ion-navbar&rsaquo;
+    
+        &lsaquo;button ion-button menuToggle&rsaquo;
+          &lsaquo;ion-icon name="menu"&rsaquo;&lsaquo;/ion-icon&rsaquo;
+        &lsaquo;/button&rsaquo;
+  </pre>
+
+  <h6>Remove Split Pane</h6>
+  <ion-label> On Per Page Basis </ion-label>
+  <hr>
+
+  <p>
+    You can remove the split pane on certian pages by adding the
+    <code>pwa-center</code> directive to the your pages
+    <code>&lsaquo;ion-content&rsaquo;</code> . see the "center" link for more details.
+    <br />
+    <strong>NOTE</strong>
+    <code>pwa-center</code> directive will ONLY work by adding a direct
+    <code>&lsaquo;ion-grid&rsaquo;</code> child element
+  </p>
+
+  <pre>
+    &lsaquo;ion-content pwa-center&rsaquo;
+      &lsaquo;ion-grid&rsaquo;
+  </pre>
+
+  <h6>Remove Split Pane Completely</h6>
+  <ion-label> Remove The Split Pane From The Application Completely </ion-label>
+  <hr>
+
+  <p>
+    If you are not using the split pane at all and you jusut want a standard template then you can use the "./app-centered.html"
+    file to replace the current "app.html" ( just rename ). You probably will want to remove the
+    <code>pwa-split-pane-max-width</code> directive as well because there will be no use for it.
+  </p>
 
 </ion-content>
