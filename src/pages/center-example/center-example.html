@@ -20,7 +20,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content pwa-center>
+<ion-content pwa-center padding>
   <ion-grid>
 
     <h6>Centered content</h6>
@@ -41,7 +41,18 @@
 
     <p>
       Because you can choose which pages are center align, all other pages will still have the split pane ( this takes into account
-      for "web user" view pages and "administration / account holder" view pages) .
+      "web user" view pages and "administration / account holder" view pages) .
+    </p>
+
+    <h6>Automatic Menu Move</h6>
+    <ion-label> Main Menu To Top Navbar </ion-label>
+    <hr>
+
+    <p>
+      Notice that the main menu items will automatically be added to the top navbar ( You will NOT have to set these menu items
+      in the
+      <code>MenuItemsTopNav</code> ) items, because all center aligned content removes the split pane the main menu items need to be moved into the visible
+      top navbar.
     </p>
 
   </ion-grid>

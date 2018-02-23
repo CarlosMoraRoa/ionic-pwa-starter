@@ -22,16 +22,19 @@ export class PwaCenterDirective {
     /**
      * By default applying the pwa-center directive, removes the split pane.
      */
-    this.ionMenuEl = this.el.nativeElement.parentElement.parentElement.parentElement.children[0];
+   /*  this.ionMenuEl = this.renderer2.selectRootElement('ion-menu');
+    console.log('test', this.ionMenuEl);
+    console.log('test2', );
+
     if (this.ionMenuEl) {
       this.renderer2.addClass(this.ionMenuEl, 'pwa-hide');
-    }
+    } */
   }
 
   ngOnDestroy() {
-    if (this.ionMenuEl) {
+    /* if (this.ionMenuEl) {
       this.renderer2.removeClass(this.ionMenuEl, 'pwa-hide');
-    }
+    } */
   }
 
 }

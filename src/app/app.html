@@ -1,4 +1,4 @@
-<ion-split-pane [pwa-split-pane-max-width]="230">
+<ion-split-pane #splitMenu [pwa-split-pane-max-width]="230" [when]="shouldShow()">
 
   <ion-menu [content]="content">
     <!-- Example with max width directive ./directives/pwa-split-pane-max-width/pwa-split-pane-max-width -->
@@ -12,7 +12,7 @@
 
     <ion-content>
       <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.active-menu-item]="checkActiveItem(p)">
           {{p.title}}
         </button>
       </ion-list>
