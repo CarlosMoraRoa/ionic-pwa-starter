@@ -1,6 +1,7 @@
-import { Component, ViewChild, Renderer2 } from '@angular/core';
+import { Component, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { PWAConfig, IMenuItems } from "./app.pwa.config";
+import { } from "lodash";
 
 
 @Component({
@@ -12,21 +13,19 @@ import { PWAConfig, IMenuItems } from "./app.pwa.config";
 export class PwaApp {
 
   @ViewChild(Nav) nav: Nav;
-  @ViewChild('splitMenu') splitMenu: any;
+  @ViewChild('splitPane') splitPane: any;
   rootPage: any = 'HomePage';
   pages: Array<IMenuItems>;
-  activePage: any;
 
   // Set appendUniqueMenuItems to true in order to append a unique top right hand menu to the main menu 
   // Unique menu will only be appended when smaller then 992px - change this if you want
   appendUniqueMenuItems: boolean = true;
   hasSetUniqueMenuItems: boolean = false;
 
-  constructor(public platform: Platform, private renderer2: Renderer2) {
+  constructor(public platform: Platform, private renderer2: Renderer2, private el: ElementRef) {
 
     // used for an example of ngFor and navigation
     this.pages = PWAConfig.MenuItems;
-    this.activePage = this.pages[0];
     this.setUniqueMenu();
   }
 
@@ -39,8 +38,7 @@ export class PwaApp {
   checkActiveItem(page) {
     // Set split pane active menu item based on current pages component name
     if (this.nav.getActive()) {
-      let activePage = this.nav.getActive().name;
-      return page.component === activePage;
+      return page.component === this.nav.getActive().name;
     }
   }
 
@@ -63,10 +61,15 @@ export class PwaApp {
     }
   }
 
-  shouldShow() {
+  shouldShow(ev) {
     // Set comparision here for center page
     // need to check if ion-content has the pwa-center attribute
-    return true;
+    if (this.splitPane.nativeElement.children[1].children[1].className.includes('pwa-center')) {
+      this.renderer2.addClass(this.splitPane.nativeElement, 'split-pane-center');
+    } else {
+      this.renderer2.removeClass(this.splitPane.nativeElement, 'split-pane-center');
+    }
+    return window.innerWidth <= 768 ? false : true;
   }
 
 }

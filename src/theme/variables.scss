@@ -50,7 +50,8 @@ $grid-breakpoints: (
 );
 
 $grid-max-widths: (
- lg: 992px
+ lg: 992px,
+ md: 768px
 );
 
 // App iOS Variables
@@ -101,6 +102,7 @@ $grid-max-widths: (
 
 // Custom PWA styles
 // -------------------------------------------------
-@import "pwa-center";
+
 @import "pwa-lg-flat-style";
 @import "pwa-common";
+@import "pwa-center";

@@ -13,10 +13,11 @@ export class PWAConfig {
   ];
 
   public static readonly MenuItemsTopNav = [
-    { title: 'Account', component: 'HomePage' },
-    { title: 'Logout', component: 'CenterExamplePage' },
+    { title: 'Account', component: 'AccountPage' },
+    { title: 'Logout', component: 'LogoutPage' },
   ];
 
+  
 }
 
 export interface IMenuItems {
