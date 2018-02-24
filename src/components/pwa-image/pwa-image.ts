@@ -22,10 +22,8 @@ export class PwaImageComponent {
   @Input() imgNamesArray: Array<string>;
   @Input() extension: string = 'png';
   @Input() alt: string;
-  @Input() crossorigin: string;
-  @Input() height: string;
-  @Input() width: string;
-  @Input() longdesc: string;
+  @Input() height: string = 'auto';
+  @Input() width: string = 'auto';
   imgName: string;
 
   constructor() {
@@ -43,11 +41,13 @@ export class PwaImageComponent {
     if (window.innerWidth >= 992) {
       this.imgName = this.imgNamesArray[0];
     } else if (window.innerWidth <= 991 && window.innerWidth >= 768) {
-      this.imgName = this.imgNamesArray[1];
+      this.imgName = this.imgNamesArray[1] != undefined ? this.imgNamesArray[1] : this.imgNamesArray[this.imgNamesArray.length - 1];
     } else if (window.innerWidth <= 768 && window.innerWidth >= 576) {
-      this.imgName = this.imgNamesArray[2];
+      this.imgName = this.imgNamesArray[2] != undefined ? this.imgNamesArray[2] : this.imgNamesArray[this.imgNamesArray.length - 1];
+    } else if (window.innerWidth < 575) {
+      this.imgName = this.imgNamesArray[3] != undefined ? this.imgNamesArray[3] : this.imgNamesArray[this.imgNamesArray.length - 1];
     } else {
-      this.imgName = this.imgNamesArray[3];
+      this.imgName = this.imgNamesArray[this.imgNamesArray.length - 1]
     }
   }
 
