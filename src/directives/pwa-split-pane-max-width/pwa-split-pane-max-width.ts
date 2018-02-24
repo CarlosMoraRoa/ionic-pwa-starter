@@ -29,7 +29,7 @@ export class PwaSplitpaneMaxWidthDirective {
   }
 
   setMaxWidth() {
-    if (window.innerWidth <= 768 && this.maxWidth && !this.platform.is('ipad')) {
+    if (window.innerWidth <= 768 && this.maxWidth && (!this.platform.is('ipad'))) {
       this.el.nativeElement.children[0].style.maxWidth = '100%';
     } else {
       this.el.nativeElement.children[0].style.maxWidth = `${this.maxWidth}px`;

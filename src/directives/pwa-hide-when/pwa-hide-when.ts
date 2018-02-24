@@ -1,4 +1,5 @@
 import { Directive, Input, ElementRef } from '@angular/core';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the PwaHideWhenDirective directive.
@@ -14,7 +15,7 @@ import { Directive, Input, ElementRef } from '@angular/core';
 })
 export class PwaHideWhenDirective {
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, public platform: Platform) {
   }
 
   ngOnInit() {
@@ -26,7 +27,8 @@ export class PwaHideWhenDirective {
   }
 
   showWhenCheck() {
-    this.el.nativeElement.hidden = window.innerWidth > 768 ? false : true;
+    this.el.nativeElement.hidden = window.innerWidth > 768 || this.platform.is('ipad') ? false : true;
   }
+
 
 }

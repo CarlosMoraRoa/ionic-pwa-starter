@@ -23,7 +23,6 @@
     <pwa-menu></pwa-menu>
   </ion-toolbar>
 
-
 </ion-header>
 
 
@@ -40,6 +39,9 @@
     <code>pwa-show-when</code> and
     <code>pwa-hide-when</code>
   </p>
+  
+  <button color="primary" pwa-show-when ion-button> This button uses pwa-show-when </button>
+  <button color="secondary" pwa-hide-when ion-button> This button uses pwa-hide-when </button>
 
   <ion-tabs tabsPlacement="bottom" pwa-show-when>
     <ion-tab [root]="tab1Root" tabTitle="Page One" tabIcon="book"></ion-tab>
