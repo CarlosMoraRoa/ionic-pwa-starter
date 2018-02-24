@@ -18,9 +18,4 @@
             display: none!important;
         }
     }
-    @media (min-width: map-get($grid-breakpoints, md)) {
-        .split-pane-center ion-menu {
-            display: none!important;
-        }
-    }
 }

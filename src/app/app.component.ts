@@ -1,4 +1,4 @@
-import { Component, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, ViewChild, Renderer2 } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { PWAConfig, IMenuItems } from "./app.pwa.config";
 import { } from "lodash";
@@ -22,7 +22,7 @@ export class PwaApp {
   appendTopNavMenuItems: boolean = true;
   hasSetTopNavMenuItems: boolean = false;
 
-  constructor(public platform: Platform, private renderer2: Renderer2, private el: ElementRef) {
+  constructor(public platform: Platform, private renderer2: Renderer2) {
 
     // used for an example of ngFor and navigation
     this.pages = PWAConfig.MenuItems;
@@ -70,7 +70,8 @@ export class PwaApp {
     } else {
       this.renderer2.removeClass(this.splitPane.nativeElement, 'split-pane-center');
     }
-    return window.innerWidth <= 767 ? false : true;
+    
+    return window.innerWidth <= 768 ? false : true;
   }
 
 }

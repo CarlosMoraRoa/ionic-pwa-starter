@@ -10,6 +10,7 @@ export class PWAConfig {
     { title: 'Images', component: 'ImagesExamplePage' },
     { title: 'Split Pane', component: 'SplitPaneExamplePage' },
     { title: 'Menu', component: 'CustomMenuExamplePage' },
+    { title: 'Show/Hide', component: 'ShowHidePage' },
   ];
 
   public static readonly MenuItemsTopNav = [

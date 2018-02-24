@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { PWAConfig, IMenuItems } from "../../app/app.pwa.config";
 
@@ -20,7 +20,7 @@ export class PwaMenuComponent {
   @Input() menuItems: Array<IMenuItems> = PWAConfig.MenuItemsTopNav;
   @Input() standAlone: boolean;
 
-  constructor(private navCtrl: NavController, private el: ElementRef, private renderer2: Renderer2, private platform: Platform) {
+  constructor(private navCtrl: NavController, private el: ElementRef, private platform: Platform) {
   }
 
   ngOnInit() {
@@ -36,9 +36,7 @@ export class PwaMenuComponent {
   }
 
   menuShouldShowCheck() {
-    if (!this.platform.is('ipad')) {
-      this.el.nativeElement.hidden = window.innerWidth <= 768 ? true : false;
-    }
+    this.el.nativeElement.hidden = window.innerWidth <= 768 || this.platform.is('ipad') ? true : false;
   }
 
   goto(item) {

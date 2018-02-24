@@ -1,4 +1,4 @@
-import { Directive, Input, HostListener, ElementRef } from '@angular/core';
+import { Directive, Input, ElementRef } from '@angular/core';
 
 /**
  * Generated class for the PwaHideWhenDirective directive.
@@ -14,7 +14,19 @@ import { Directive, Input, HostListener, ElementRef } from '@angular/core';
 })
 export class PwaHideWhenDirective {
 
-  constructor() {
+  constructor(private el: ElementRef) {
+  }
+
+  ngOnInit() {
+    this.showWhenCheck();
+  }
+
+  onWindowResize() {
+    this.showWhenCheck();
+  }
+
+  showWhenCheck() {
+    this.el.nativeElement.hidden = window.innerWidth > 768 ? false : true;
   }
 
 }

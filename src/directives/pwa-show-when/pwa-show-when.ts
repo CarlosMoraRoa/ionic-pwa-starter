@@ -14,24 +14,19 @@ import { Directive, Input, ElementRef } from '@angular/core';
 })
 export class PwaShowWhenDirective {
 
-  @Input() showWhenWidth: string;
-
   constructor(private el: ElementRef) {
+  }
+
+  ngOnInit() {
+    this.showWhenCheck();
   }
 
   onWindowResize() {
     this.showWhenCheck();
   }
-  
+
   showWhenCheck() {
-    /* switch (true) {
-      case window.innerWidth <= this.hideWhenWidth && !this.greaterThen: this.el.nativeElement.hidden = false;
-        break;
-      case window.innerWidth >= this.hideWhenWidth && this.greaterThen: this.el.nativeElement.hidden = false;
-        break;
-      default: this.el.nativeElement.hidden = true;
-        break;
-    } */
+    this.el.nativeElement.hidden = window.innerWidth > 768 ? true : false;
   }
 
 }
