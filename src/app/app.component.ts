@@ -64,14 +64,16 @@ export class PwaApp {
   shouldShow(ev) {
     // Set comparision here for center page
     // need to check if ion-content has the pwa-center attribute
-    if (this.splitPane.nativeElement.children[1].children[1].className.includes('pwa-center') && !this.platform.is('ipad')) {
-      this.renderer2.addClass(this.splitPane.nativeElement, 'split-pane-center');
-      
+    if (window.innerWidth >= 768) {
+      if (this.splitPane.nativeElement.children[1].children[1].className.includes('pwa-center') && !this.platform.is('ipad')) {
+        return false;
+      } else {
+        this.renderer2.addClass(this.splitPane.nativeElement, 'split-pane-center');
+        return true;
+      }
     } else {
-      this.renderer2.removeClass(this.splitPane.nativeElement, 'split-pane-center');
+      return false;
     }
-    
-    return window.innerWidth <= 768 ? false : true;
   }
 
 }
