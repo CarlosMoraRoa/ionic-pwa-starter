@@ -17,16 +17,16 @@ export class PwaApp {
   rootPage: any = 'HomePage';
   pages: Array<IMenuItems>;
 
-  // Set appendUniqueMenuItems to true in order to append a unique top right hand menu to the main menu 
+  // Set appendTopNavMenuItems to true in order to append a unique top right hand menu to the main menu 
   // Unique menu will only be appended when smaller then 992px - change this if you want
-  appendUniqueMenuItems: boolean = true;
-  hasSetUniqueMenuItems: boolean = false;
+  appendTopNavMenuItems: boolean = true;
+  hasSetTopNavMenuItems: boolean = false;
 
   constructor(public platform: Platform, private renderer2: Renderer2, private el: ElementRef) {
 
     // used for an example of ngFor and navigation
     this.pages = PWAConfig.MenuItems;
-    this.setUniqueMenu();
+    this.setTopNavMenu();
   }
 
   openPage(page) {
@@ -43,20 +43,20 @@ export class PwaApp {
   }
 
   onWindowResize() {
-    this.setUniqueMenu();
+    this.setTopNavMenu();
   }
 
-  setUniqueMenu() {
+  setTopNavMenu() {
     // Pushs unique top right hand menu items onto main menu when smaller device
     // Set isUniqueMenu="true" on <pwa-menu> 
-    if (this.appendUniqueMenuItems && window.innerWidth <= 992) {
-      if (!this.hasSetUniqueMenuItems) {
-        this.hasSetUniqueMenuItems = true;
+    if (this.appendTopNavMenuItems && window.innerWidth <= 992) {
+      if (!this.hasSetTopNavMenuItems) {
+        this.hasSetTopNavMenuItems = true;
         this.pages = this.pages.concat(PWAConfig.MenuItemsTopNav)
       }
-    } else if (this.appendUniqueMenuItems) {
+    } else if (this.appendTopNavMenuItems) {
       // watchs for screen size change
-      this.hasSetUniqueMenuItems = false;
+      this.hasSetTopNavMenuItems = false;
       this.pages = this.pages.filter(x => PWAConfig.MenuItemsTopNav.indexOf(x) === -1);
     }
   }
@@ -66,6 +66,7 @@ export class PwaApp {
     // need to check if ion-content has the pwa-center attribute
     if (this.splitPane.nativeElement.children[1].children[1].className.includes('pwa-center')) {
       this.renderer2.addClass(this.splitPane.nativeElement, 'split-pane-center');
+      
     } else {
       this.renderer2.removeClass(this.splitPane.nativeElement, 'split-pane-center');
     }

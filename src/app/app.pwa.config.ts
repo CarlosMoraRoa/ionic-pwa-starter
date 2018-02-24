@@ -17,7 +17,6 @@ export class PWAConfig {
     { title: 'Logout', component: 'LogoutPage' },
   ];
 
-  
 }
 
 export interface IMenuItems {

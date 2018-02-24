@@ -1,11 +1,20 @@
 .md,
 .ios {
-  .pwa-lg-flat-style{
-    .header-md::after,
-    .tabs-md[tabsPlacement="top"]>.tabbar::after,
-    .footer-md::before,
-    .tabs-md[tabsPlacement="bottom"]>.tabbar::before {
-      content: none;
+    .pwa-lg-flat-style {
+        .header-md::after,
+        .tabs-md[tabsPlacement="top"]>.tabbar::after,
+        .footer-md::before,
+        .tabs-md[tabsPlacement="bottom"]>.tabbar::before {
+            content: none;
+        }
+        .button-md,
+        .card-md,
+        .searchbar-md .searchbar-input {
+            box-shadow: none;
+        }
+        .card-md,
+        .searchbar-md .searchbar-input {
+            border: 1px solid map-get($colors, border);
+        }
     }
-  }
 }
