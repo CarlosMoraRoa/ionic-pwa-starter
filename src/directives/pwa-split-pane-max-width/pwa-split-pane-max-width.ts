@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input } from '@angular/core';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the PwaSplitpaneMaxWidthDirective directive.
@@ -16,7 +17,7 @@ export class PwaSplitpaneMaxWidthDirective {
 
   @Input('pwa-split-pane-max-width') maxWidth: string;
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, public platform: Platform) {
   }
 
   ngOnInit() {
@@ -28,6 +29,10 @@ export class PwaSplitpaneMaxWidthDirective {
   }
 
   setMaxWidth() {
-    window.innerWidth <= 767 && this.maxWidth ? this.el.nativeElement.children[0].style.maxWidth = '100%' : this.el.nativeElement.children[0].style.maxWidth = `${this.maxWidth}px`;
+    if (window.innerWidth <= 768 && this.maxWidth && !this.platform.is('ipad')) {
+      this.el.nativeElement.children[0].style.maxWidth = '100%';
+    } else {
+      this.el.nativeElement.children[0].style.maxWidth = `${this.maxWidth}px`;
+    }
   }
 }

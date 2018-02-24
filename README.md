@@ -8,6 +8,7 @@ The start template consists primarily of custom directives and componets that mi
   - Large Flat Style
   - Desktop Toolbar Menu
   - Split Pane Extras
+  - Images
 
 For more information see the [projects wiki](https://github.com/IsaacSomething/ionic-pwa-starter/wiki)
 

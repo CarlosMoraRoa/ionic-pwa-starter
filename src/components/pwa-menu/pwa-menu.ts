@@ -1,5 +1,5 @@
 import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { PWAConfig, IMenuItems } from "../../app/app.pwa.config";
 
 /**
@@ -20,13 +20,15 @@ export class PwaMenuComponent {
   @Input() menuItems: Array<IMenuItems> = PWAConfig.MenuItemsTopNav;
   @Input() standAlone: boolean;
 
-  constructor(private navCtrl: NavController, private el: ElementRef, private renderer2: Renderer2) {
+  constructor(private navCtrl: NavController, private el: ElementRef, private renderer2: Renderer2, private platform: Platform) {
   }
 
   ngOnInit() {
     this.menuShouldShowCheck();
     let ionContentElCheckForPwaCenter = this.el.nativeElement.parentElement.parentElement.parentElement.parentElement.children[1].attributes.hasOwnProperty('pwa-center');
-    this.standAlone || ionContentElCheckForPwaCenter && (this.menuItems = PWAConfig.MenuItems);
+    if ((this.standAlone || ionContentElCheckForPwaCenter) && !this.platform.is('ipad')) {
+      this.menuItems = PWAConfig.MenuItems
+    }
   }
 
   onWindowResize() {
@@ -34,7 +36,9 @@ export class PwaMenuComponent {
   }
 
   menuShouldShowCheck() {
-    this.el.nativeElement.hidden = window.innerWidth <= 768 ? true : false;
+    if (!this.platform.is('ipad')) {
+      this.el.nativeElement.hidden = window.innerWidth <= 768 ? true : false;
+    }
   }
 
   goto(item) {
