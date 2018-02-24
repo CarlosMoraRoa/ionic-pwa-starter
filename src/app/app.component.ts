@@ -26,7 +26,7 @@ export class PwaApp {
 
     // used for an example of ngFor and navigation
     this.pages = PWAConfig.MenuItems;
-    this.setTopNavMenu();
+    this.setTopNavMenuIntoMainMenu();
   }
 
   openPage(page) {
@@ -43,10 +43,10 @@ export class PwaApp {
   }
 
   onWindowResize() {
-    this.setTopNavMenu();
+    this.setTopNavMenuIntoMainMenu();
   }
 
-  setTopNavMenu() {
+  setTopNavMenuIntoMainMenu() {
     // Pushs unique top right hand menu items onto main menu when smaller device
     // Set isUniqueMenu="true" on <pwa-menu> 
     if (this.appendTopNavMenuItems && window.innerWidth <= 992) {

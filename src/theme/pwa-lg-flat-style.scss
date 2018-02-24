@@ -16,5 +16,9 @@
         .searchbar-md .searchbar-input {
             border: 1px solid map-get($colors, border);
         }
+        .card-md .card-header-md{
+          border-bottom: 1px solid map-get($colors, border);
+          margin-bottom: 10px;
+        }
     }
 }

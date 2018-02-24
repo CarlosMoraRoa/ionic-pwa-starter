@@ -34,7 +34,7 @@ export class PwaMenuComponent {
   }
 
   menuShouldShowCheck() {
-    this.el.nativeElement.hidden = window.innerWidth <= 992 ? true : false;
+    this.el.nativeElement.hidden = window.innerWidth <= 768 ? true : false;
   }
 
   goto(item) {

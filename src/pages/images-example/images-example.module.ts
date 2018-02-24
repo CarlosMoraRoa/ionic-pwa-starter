@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { ImagesExamplePage } from './images-example';
 import { ComponentsModule } from "../../components/components.module";
 
+
 @NgModule({
   declarations: [
     ImagesExamplePage,
