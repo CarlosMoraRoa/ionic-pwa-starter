@@ -1,4 +1,4 @@
-import { Component, ViewChild, Renderer2 } from '@angular/core';
+import { Component, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { PWAConfig, IMenuItems } from "./app.pwa.config";
 import { } from "lodash";
@@ -13,7 +13,8 @@ import { } from "lodash";
 export class PwaApp {
 
   @ViewChild(Nav) nav: Nav;
-  @ViewChild('splitPane') splitPane: any;
+  @ViewChild('ionMenu') ionMenu: ElementRef;
+  @ViewChild('center') center: ElementRef;
   rootPage: any = 'HomePage';
   pages: Array<IMenuItems>;
 
@@ -22,11 +23,12 @@ export class PwaApp {
   appendTopNavMenuItems: boolean = true;
   hasSetTopNavMenuItems: boolean = false;
 
-  constructor(public platform: Platform, private renderer2: Renderer2) {
+  constructor(public platform: Platform, private renderer2: Renderer2, private el: ElementRef) {
 
     // used for an example of ngFor and navigation
     this.pages = PWAConfig.MenuItems;
     this.setTopNavMenuIntoMainMenu();
+    this.checkToShowIonMenu();
   }
 
   openPage(page) {
@@ -44,6 +46,16 @@ export class PwaApp {
 
   onWindowResize() {
     this.setTopNavMenuIntoMainMenu();
+    this.checkToShowIonMenu();
+  }
+
+  checkToShowIonMenu() {
+    if (window.innerWidth >= 768) {
+      let tron = this.el.nativeElement.getElementsByTagName('ion-menu')[0];
+      if (tron) {
+        this.renderer2.removeClass(tron, 'split-pane-none')
+      }
+    }
   }
 
   setTopNavMenuIntoMainMenu() {
@@ -58,21 +70,6 @@ export class PwaApp {
       // watchs for screen size change
       this.hasSetTopNavMenuItems = false;
       this.pages = this.pages.filter(x => PWAConfig.MenuItemsTopNav.indexOf(x) === -1);
-    }
-  }
-
-  shouldShow(ev) {
-    // Set comparision here for center page
-    // need to check if ion-content has the pwa-center attribute
-    if (window.innerWidth >= 768) {
-      if (this.splitPane.nativeElement.children[1].children[1].className.includes('pwa-center') && !this.platform.is('ipad')) {
-        return false;
-      } else {
-        this.renderer2.addClass(this.splitPane.nativeElement, 'split-pane-center');
-        return true;
-      }
-    } else {
-      return false;
     }
   }
 

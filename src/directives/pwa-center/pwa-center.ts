@@ -17,8 +17,15 @@ export class PwaCenterDirective {
   }
 
   ngOnInit() {
-    this.ionContentEl = this.renderer2.parentNode(this.el.nativeElement)
+    /**
+     * Setting to add class name on split pane DOM element - allows to access as nativeElement by in ./app/app.component.ts
+     * to hide main menu
+     * Results in no split pane when content is center
+     */
+    this.ionContentEl = this.el.nativeElement;
     this.renderer2.addClass(this.ionContentEl, 'pwa-center');
+
+
   }
 
   ngOnDestroy() {

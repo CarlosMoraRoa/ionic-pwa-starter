@@ -16,7 +16,6 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 export class CenterExamplePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform) {
-    console.log('asd', this.platform);
 
   }
 

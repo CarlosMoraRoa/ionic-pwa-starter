@@ -1,8 +1,9 @@
-<ion-split-pane #splitPane [pwa-split-pane-max-width]="230" [when]="shouldShow()">
+<!-- Example with max width directive ./directives/pwa-split-pane-max-width/pwa-split-pane-max-width -->
+<!-- <ion-split-pane [content]="content" [pwa-split-pane-max-width]="200"> -->
+<ion-split-pane>
 
-  <ion-menu [content]="content">
-    <!-- Example with max width directive ./directives/pwa-split-pane-max-width/pwa-split-pane-max-width -->
-    <!-- <ion-menu [content]="content" [pwa-split-pane-max-width]="200"> -->
+  <!-- Setting the class  split-pane-none ensures that there is no split-pane flash on the inital page load if pwa-center has been applied -->
+  <ion-menu #ionMenu [content]="content" class="split-pane-none">
 
     <ion-header>
       <ion-toolbar>
