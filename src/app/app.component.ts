@@ -27,6 +27,10 @@ export class PwaApp {
 
     // used for an example of ngFor and navigation
     this.pages = PWAConfig.MenuItems;
+    
+  }
+
+  ngOnInit(){
     this.setTopNavMenuIntoMainMenu();
     this.checkToShowIonMenu();
   }
@@ -50,10 +54,14 @@ export class PwaApp {
   }
 
   checkToShowIonMenu() {
+    let ionMenuEl = this.el.nativeElement.getElementsByTagName('ion-menu')[0];
     if (window.innerWidth >= 768) {
-      let tron = this.el.nativeElement.getElementsByTagName('ion-menu')[0];
-      if (tron) {
-        this.renderer2.removeClass(tron, 'split-pane-none')
+      if (ionMenuEl) {
+        this.renderer2.removeClass(ionMenuEl, 'split-pane-none')
+      }
+    } else {
+      if (ionMenuEl) {
+        this.renderer2.removeClass(ionMenuEl, 'split-pane-none')
       }
     }
   }
