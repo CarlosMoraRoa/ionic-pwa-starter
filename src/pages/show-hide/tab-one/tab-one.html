@@ -4,8 +4,6 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-
-
 <ion-content padding>
 
   <h1>Tab Page One</h1>
@@ -16,11 +14,11 @@
   <p>
     On this page we have an example using a toolbar for menu items on the larger views and then hide this to show a toolbar on
     the smaller devices. Here we use the directive
-    <code>pwa-show-when</code> and
-    <code>pwa-hide-when</code>
+    <code>pwa-show-smaller</code> and
+    <code>pwa-show-larger</code>
   </p>
 
-  <button color="primary" ion-button> This button uses pwa-show-when </button>
-  <button color="secondary" pwa-hide-when ion-button> This button uses pwa-hide-when </button>
+  <button color="primary" ion-button> This button uses pwa-show-smaller </button>
+  <button color="secondary" pwa-show-larger ion-button> This button uses pwa-show-larger </button>
 
 </ion-content>

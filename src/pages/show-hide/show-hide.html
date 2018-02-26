@@ -19,7 +19,7 @@
 
   </ion-navbar>
 
-  <ion-toolbar pwa-hide-when no-padding>
+  <ion-toolbar pwa-show-larger no-padding>
     <pwa-menu></pwa-menu>
   </ion-toolbar>
 
@@ -36,14 +36,14 @@
   <p>
     On this page we have an example using a toolbar for menu items on the larger views and then hide this to show a toolbar on
     the smaller devices. Here we use the directive
-    <code>pwa-show-when</code> and
-    <code>pwa-hide-when</code>
+    <code>pwa-show-smaller</code> and
+    <code>pwa-show-larger</code>
   </p>
   
-  <button color="primary" pwa-show-when ion-button> This button uses pwa-show-when </button>
-  <button color="secondary" pwa-hide-when ion-button> This button uses pwa-hide-when </button>
+  <button color="primary" pwa-show-smaller ion-button> This button uses pwa-show-smaller </button>
+  <button color="secondary" pwa-show-larger ion-button> This button uses pwa-show-larger </button>
 
-  <ion-tabs tabsPlacement="bottom" pwa-show-when>
+  <ion-tabs tabsPlacement="bottom" pwa-show-smaller>
     <ion-tab [root]="tab1Root" tabTitle="Page One" tabIcon="book"></ion-tab>
     <ion-tab [root]="tab2Root" tabTitle="Page Two" tabIcon="bookmarks"></ion-tab>
     <ion-tab [root]="tab3Root" tabTitle="Page Three" tabIcon="clipboard"></ion-tab>
