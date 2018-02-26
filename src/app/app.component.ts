@@ -13,8 +13,7 @@ import { } from "lodash";
 export class PwaApp {
 
   @ViewChild(Nav) nav: Nav;
-  @ViewChild('ionMenu') ionMenu: ElementRef;
-  @ViewChild('center') center: ElementRef;
+  @ViewChild('menu') menu:ElementRef;
   rootPage: any = 'HomePage';
   pages: Array<IMenuItems>;
 
@@ -26,14 +25,26 @@ export class PwaApp {
   constructor(public platform: Platform, private renderer2: Renderer2, private el: ElementRef) {
 
     // used for an example of ngFor and navigation
-    this.pages = PWAConfig.MenuItems;
-    
+    this.pages = PWAConfig.MenuItems;    
   }
 
-  ngOnInit(){
+  checkToShowSplitPane(){
+    // initially set the split pane hidden. This prevents a flash of the split pane in the directive pwa-center 
+    // is added this.ionMenuEl = this.el.nativeElement.getElementsByTagName('ion-menu')[0];
+    let val = true;
+    let ionContentEl = this.el.nativeElement.getElementsByTagName('ion-content')[1];
+    if(ionContentEl){
+      val = ionContentEl.className.includes('pwa-center') ? true : false;
+    }
+    return val
+  }
+
+
+  ngOnInit() {
     this.setTopNavMenuIntoMainMenu();
     this.checkToShowIonMenu();
   }
+
 
   openPage(page) {
     // Reset the content nav to have just this page
