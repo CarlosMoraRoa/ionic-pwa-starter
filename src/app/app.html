@@ -3,7 +3,7 @@
 <ion-split-pane>
 
   <!-- Setting the class  split-pane-none ensures that there is no split-pane flash on the inital page load if pwa-center has been applied -->
-  <ion-menu #ionMenu [content]="content" class="split-pane-none">
+  <ion-menu #menu [content]="content" [class.split-pane-none]="checkToShowSplitPane()" >
 
     <ion-header>
       <ion-toolbar>

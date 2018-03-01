@@ -8,12 +8,12 @@ import { Platform } from 'ionic-angular';
  * Directives.
  */
 @Directive({
-  selector: '[pwa-hide-when]', // Attribute selector
+  selector: '[pwa-show-larger]', // Attribute selector
   host: {
     '(window:resize)': 'onWindowResize($event)'
   }
 })
-export class PwaHideWhenDirective {
+export class PwaShowLargerDirective {
 
   constructor(private el: ElementRef, public platform: Platform) {
   }

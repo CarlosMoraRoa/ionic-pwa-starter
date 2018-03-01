@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { PwaHideWhenDirective } from './pwa-hide-when/pwa-hide-when';
-import { PwaShowWhenDirective } from './pwa-show-when/pwa-show-when';
+import { PwaShowLargerDirective } from './pwa-show-larger/pwa-show-larger';
+import { PwaShowSmallerDirective } from './pwa-show-smaller/pwa-show-smaller';
 import { PwaSplitpaneMaxWidthDirective } from './pwa-split-pane-max-width/pwa-split-pane-max-width';
 import { PwaCenterDirective } from './pwa-center/pwa-center';
 import { PwaLgFlatStyleDirective } from './pwa-lg-flat-style/pwa-lg-flat-style';
@@ -8,15 +8,15 @@ import { PwaLgFlatStyleDirective } from './pwa-lg-flat-style/pwa-lg-flat-style';
 
 @NgModule({
   declarations: [
-    PwaHideWhenDirective,
-    PwaShowWhenDirective,
+    PwaShowSmallerDirective,
+    PwaShowLargerDirective,
     PwaSplitpaneMaxWidthDirective,
     PwaCenterDirective,
     PwaLgFlatStyleDirective],
   imports: [],
   exports: [
-    PwaHideWhenDirective,
-    PwaShowWhenDirective,
+    PwaShowSmallerDirective,
+    PwaShowLargerDirective,
     PwaSplitpaneMaxWidthDirective,
     PwaCenterDirective,
     PwaLgFlatStyleDirective]

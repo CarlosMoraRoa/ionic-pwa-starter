@@ -12,9 +12,11 @@ The start template consists primarily of custom directives and componets that mi
 
 For more information see the [projects wiki](https://github.com/IsaacSomething/ionic-pwa-starter/wiki)
 
-#### Demo
+#### Demo 
 
-To demo, clone this repo
+[https://ionic-pwa-starter.firebaseapp.com](https://ionic-pwa-starter.firebaseapp.com)
+
+Or clone this repo
 
      $: git clone https://github.com/IsaacSomething/ionic-pwa-starter.git
 
@@ -36,3 +38,4 @@ checkout [workbox](https://developers.google.com/web/tools/workbox/)
 
 #### Roadmap
  - [Capacitor](https://capacitor.ionicframework.com/docs/basics/progressive-web-app)
+ - Clean this repo and only have demo version online.
