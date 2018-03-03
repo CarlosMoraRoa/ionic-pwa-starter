@@ -35,12 +35,13 @@ export class PwaApp {
   checkToShowSplitPane() {
     // initially set the split pane hidden. This prevents a flash of the split pane in the directive pwa-center 
     // is added this.ionMenuEl = this.el.nativeElement.getElementsByTagName('ion-menu')[0];
-    let val: boolean = true;
+    let val: boolean = false;
     let ionContentEl = this.el.nativeElement.getElementsByTagName('ion-content')[1];
     if (ionContentEl) {
-      val = ionContentEl.className.includes('pwa-center') ? true : false;
-    } else if (window.innerWidth <= 767) {
-      return false;
+      val = ionContentEl.className.includes('pwa-center') ? false : true;
+    } 
+    if (window.innerWidth <= 767) {
+      return true;
     }
     return val;
   }
