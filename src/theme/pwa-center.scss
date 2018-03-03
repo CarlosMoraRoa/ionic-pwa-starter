@@ -2,7 +2,7 @@
 .ios {
     @media (min-width: map-get($grid-breakpoints, lg)) {
         .pwa-center {
-            ion-header .toolbar, ion-grid, ion-footer .toolbar {
+            ion-header .toolbar, ion-content ion-grid, ion-footer .toolbar {
                 padding-right: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
                 padding-left: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
             }

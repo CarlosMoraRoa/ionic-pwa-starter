@@ -27,7 +27,7 @@ export class PwaShowSmallerDirective {
   }
 
   showWhenCheck() {
-    this.el.nativeElement.hidden = window.innerWidth > 768 || this.platform.is('ipad') ? true : false;
+    this.el.nativeElement.hidden = window.innerWidth > 768 && !this.platform.is('ipad') ? true : false;
   }
 
 }

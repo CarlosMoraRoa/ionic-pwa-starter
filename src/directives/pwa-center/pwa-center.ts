@@ -11,6 +11,7 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 })
 export class PwaCenterDirective {
 
+  ionPageEl: ElementRef;
   ionContentEl: ElementRef;
 
   constructor(private el: ElementRef, private renderer2: Renderer2) {
@@ -23,14 +24,17 @@ export class PwaCenterDirective {
      * Results in no split pane when content is center
      */
     this.ionContentEl = this.el.nativeElement;
+    this.ionPageEl = this.renderer2.parentNode(this.el.nativeElement);
     this.renderer2.addClass(this.ionContentEl, 'pwa-center');
+    this.renderer2.addClass(this.ionPageEl, 'pwa-center');
 
 
   }
 
   ngOnDestroy() {
-    if (this.ionContentEl) {
+    if (this.ionPageEl) {
       this.renderer2.removeClass(this.ionContentEl, 'pwa-center');
+      this.renderer2.removeClass(this.ionPageEl, 'pwa-center');
     }
   }
 
