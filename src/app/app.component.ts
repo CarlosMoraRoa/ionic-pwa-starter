@@ -39,8 +39,7 @@ export class PwaApp {
     let ionContentEl = this.el.nativeElement.getElementsByTagName('ion-content')[1];
     if (ionContentEl) {
       val = ionContentEl.className.includes('pwa-center') ? true : false;
-    }
-    if (window.innerWidth <= 768) {
+    } else if (window.innerWidth <= 767) {
       return false;
     }
     return val;
